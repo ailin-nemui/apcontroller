@@ -256,6 +256,8 @@ return view.extend({
 					if (hosts[mac] && hosts[mac].ipaddrs)
 						c.ipaddr = (hosts[mac].ipaddrs).join('<br>');
 				}
+				if (hosts[mac] && hosts[mac].ip6addrs && hosts[mac].ip6addrs.length)
+					c.ipaddr += '<br><small>' + hosts[mac].ip6addrs[0];   
 			});
 
 			// Refresh clients table
