@@ -744,6 +744,7 @@ return view.extend({
 									return fs.exec('sshpass', [
 										'-p', typeof row['password'] !== 'undefined' ? row['password']: '""',
 										'scp',
+										'-o', 'IdentityFile=/root/.ssh/id_dropbear',
 										'-o', 'StrictHostKeyChecking=no',
 										'-P', row['port'],
 										'/usr/share/apcontroller/scripts/' + script,
@@ -753,6 +754,7 @@ return view.extend({
 											'-p', typeof row['password'] !== 'undefined' ? row['password']: '""',
 											'ssh',
 											'-q',
+											'-o', 'IdentityFile=/root/.ssh/id_dropbear',
 											'-o', 'StrictHostKeyChecking=no',
 											'-p', row['port'],
 											row['username'] + '@' + row['ipaddr'],
